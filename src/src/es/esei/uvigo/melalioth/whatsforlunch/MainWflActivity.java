@@ -1,19 +1,71 @@
 package es.esei.uvigo.melalioth.whatsforlunch;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TabHost;
+import android.widget.Toast;
+import android.widget.TabHost.OnTabChangeListener;
 
-public class MainWflActivity extends ActionBarActivity {
+public class MainWflActivity extends Activity{
 
+	TabHost tabhost;
+	
+	Button btn1;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_wfl);
-	}
+		
+		tabhost = (TabHost) findViewById(R.id.tabMode);
 
-	@Override
+		tabhost.setup();
+
+		TabHost.TabSpec spec;
+
+		//Es la capa con el boton de generar una comid aleatoria
+		spec = tabhost.newTabSpec("generar");
+		spec.setContent(R.id.comida_alea);
+		spec.setIndicator("1-Alea",null);
+		tabhost.addTab(spec);
+
+		//Es la capa con el GripView para mostrar las fotos de los ingredientes
+		spec = tabhost.newTabSpec("que");
+		spec.setContent(R.id.que_comer);
+		spec.setIndicator("2-Comer", null);
+		tabhost.addTab(spec);
+		
+		
+		spec = tabhost.newTabSpec("ver");
+		spec.setContent(R.id.ver_super);
+		spec.setIndicator("3-Super", null);
+		tabhost.addTab(spec);
+
+		tabhost.setCurrentTab(0); // tabhost.setCurrentTabByTag("generar");
+
+		/*tabhost.setOnTabChangedListener(new OnTabChangeListener() {
+			@Override
+			public void onTabChanged(String tagId) {
+				// do something useful with the selected screen
+				String text = "Im currently in: " + tagId + "\nindex: " + tabhost.getCurrentTab();
+				Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+			}
+		});*/
+		
+		btn1 = (Button) findViewById(R.id.button1);
+		btn1.setOnClickListener( new OnClickListener() { 
+			public void onClick(View v) {				
+				if(v.getId()==findViewById(R.id.button1).getId()){
+					
+				}//if
+			}//onClick
+		});//OnClickListener
+	}//OnCreate
+	
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main_wfl, menu);
@@ -30,5 +82,5 @@ public class MainWflActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-}
+	}*/
+}//MainWflActivity
