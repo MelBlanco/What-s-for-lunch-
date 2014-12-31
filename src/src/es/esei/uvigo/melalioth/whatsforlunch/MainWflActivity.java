@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TabHost;
 import android.widget.Toast;
 import android.widget.TabHost.OnTabChangeListener;
@@ -12,7 +13,7 @@ import android.widget.TabHost.OnTabChangeListener;
 public class MainWflActivity extends Activity{
 
 	TabHost tabhost;
-	
+	EditText txtView;
 	Button btn1;
 	
 	@Override
@@ -46,20 +47,23 @@ public class MainWflActivity extends Activity{
 
 		tabhost.setCurrentTab(0); // tabhost.setCurrentTabByTag("generar");
 
-		/*tabhost.setOnTabChangedListener(new OnTabChangeListener() {
+		tabhost.setOnTabChangedListener(new OnTabChangeListener() {
 			@Override
 			public void onTabChanged(String tagId) {
 				// do something useful with the selected screen
 				String text = "Im currently in: " + tagId + "\nindex: " + tabhost.getCurrentTab();
 				Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
 			}
-		});*/
+		});
+		
+		txtView = (EditText) findViewById(R.id.TextView1);
 		
 		btn1 = (Button) findViewById(R.id.button1);
 		btn1.setOnClickListener( new OnClickListener() { 
 			public void onClick(View v) {				
 				if(v.getId()==findViewById(R.id.button1).getId()){
-					
+					String theUser = txtView.getText().toString();
+					txtView.setText("Hola " + theUser);
 				}//if
 			}//onClick
 		});//OnClickListener
