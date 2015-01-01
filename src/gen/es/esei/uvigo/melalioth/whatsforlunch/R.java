@@ -1092,7 +1092,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f090002;
         public static final int action_menu_presenter=0x7f090003;
         public static final int action_mode_close_button=0x7f090024;
-        public static final int action_settings=0x7f090042;
+        public static final int action_settings=0x7f090041;
         public static final int activity_chooser_view_content=0x7f090025;
         public static final int always=0x7f09000f;
         public static final int beginning=0x7f090016;
@@ -1108,7 +1108,6 @@ containing a value of this type.
         public static final int end=0x7f090017;
         public static final int expand_activities_button=0x7f090026;
         public static final int expanded_menu=0x7f09002c;
-        public static final int gridView1=0x7f090040;
         public static final int home=0x7f090000;
         public static final int homeAsUp=0x7f09000a;
         public static final int icon=0x7f09002a;
@@ -1145,7 +1144,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f090020;
         public static final int up=0x7f090021;
         public static final int useLogo=0x7f09000e;
-        public static final int ver_super=0x7f090041;
+        public static final int ver_super=0x7f090040;
         public static final int withText=0x7f090013;
     }
     public static final class integer {
