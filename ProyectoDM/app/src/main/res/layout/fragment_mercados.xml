@@ -1,0 +1,9 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="es.uvigo.esei.dm1415.p04.whatsforlunch.ClasesVisual.FragmentMercados">
+
+    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:text="CÓDIGO MELANIA" />
+
+</FrameLayout>
