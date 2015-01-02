@@ -1,0 +1,7 @@
+You cannot import the project directly but it's not to hard to achieve it:
+
+Create a new Android empty project in eclipse
+Overwrite the fresh res/ folder and the AndroidManifest.xml file, with the ones from the Android Studio project
+Copy the content of the java/ folder from the Android Studio project (it should contain your package name folder structure, like com/example/app/, and the java files of course) in the Eclipse src folder
+Link your needed libraries if it's the case
+Basically the Android application fundamental elements are the java files, the manifest file and the resources. From there you can build back a project in your favorite IDE
