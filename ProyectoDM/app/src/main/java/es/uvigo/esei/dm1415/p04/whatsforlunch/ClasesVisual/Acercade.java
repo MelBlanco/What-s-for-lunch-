@@ -74,7 +74,7 @@ public class Acercade extends ActionBarActivity {
                             // finger leaves the screen => event.getAction() = 1
                             break;
                     }
-                    txtMsg.setText ("Touched... " + event.getAction());
+
                     return false;
                 }
             });

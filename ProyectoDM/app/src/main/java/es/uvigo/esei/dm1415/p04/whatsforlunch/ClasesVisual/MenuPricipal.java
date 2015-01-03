@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import es.uvigo.esei.dm1415.p04.whatsforlunch.Modelo.Comida;
 import es.uvigo.esei.dm1415.p04.whatsforlunch.R;
 
 public class MenuPricipal extends ActionBarActivity implements View.OnTouchListener{
@@ -20,12 +22,20 @@ public class MenuPricipal extends ActionBarActivity implements View.OnTouchListe
     private FragmentComidaAleatoria comidaAleatoria;
     private FragmentListarComidas comida;
     private FragmentMercados mercados;
-
+    private int btnActual;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_pricipal);
         inicializarComponente();
+        this.btnActual=getIntent().getExtras().getInt("btnActual");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.btnActual=getIntent().getExtras().getInt("btnActual");
+        cambiarFragmento(btnActual);
     }
 
     private void inicializarComponente() {
@@ -35,7 +45,16 @@ public class MenuPricipal extends ActionBarActivity implements View.OnTouchListe
         btnMercado.setOnTouchListener(this);
         btnComidas=(ImageButton)findViewById(R.id.btn_comidas);
         btnComidas.setOnTouchListener(this);
-        cargarFragmento(getFragmentComidaAleatoria());
+        if(btnActual==-1){
+            Comida c=(Comida)getIntent().getExtras().getSerializable("comida");
+            Fragment fragment=FragmentVerComida.newInstance(c);
+            cargarFragmento(fragment);
+        }else{
+            if (btnActual == 0)
+                cargarFragmento(getFragmentComidaAleatoria());
+            else
+                cambiarFragmento(btnActual);
+        }
     }
 
     private void cargarFragmento(Fragment fragmento) {
@@ -82,7 +101,7 @@ public class MenuPricipal extends ActionBarActivity implements View.OnTouchListe
             case MotionEvent.ACTION_DOWN:
                 btn.setColorFilter(R.color.entintado_oscuro);
                 btn.invalidate();
-                cambiarFragmento(btn);
+                cambiarFragmento(btn.getId());
                 break;
             case MotionEvent.ACTION_UP:
                 btn.clearColorFilter();
@@ -92,9 +111,14 @@ public class MenuPricipal extends ActionBarActivity implements View.OnTouchListe
         return true;
      }
 
-    private void cambiarFragmento(View btn) {
-        switch (btn.getId()){
-            case R.id.btn_comidaaleatoria: cargarFragmento(getFragmentComidaAleatoria()); break;
+    private void cambiarFragmento(int btn) {
+        switch (btn){
+            case -1:
+                Comida c=(Comida)getIntent().getExtras().getSerializable("comida");
+                Fragment fragment=FragmentVerComida.newInstance(c);
+                cargarFragmento(fragment);
+                break;
+            case R.id.btn_comidaaleatoria: cargarFragmento(getFragmentComidaAleatoria());break;
             case R.id.btn_comidas: cargarFragmento(getFragmentComida()); break;
             case R.id.btn_mercados: cargarFragmento(getFragmentMercados());break;
         }

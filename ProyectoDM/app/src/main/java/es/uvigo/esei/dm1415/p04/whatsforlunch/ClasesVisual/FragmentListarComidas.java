@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,15 @@ public class FragmentListarComidas extends Fragment {
        db=helper.getWritableDatabase();
        inicializarComponentes(rootview);
        return rootview;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Bundle b=new Bundle();
+        int btnActual=R.id.btn_comidas;
+        b.putInt("btnActual",R.id.btn_comidas);
+        getActivity().getIntent().putExtras(b);
     }
 
     private void inicializarComponentes(View rootview) {

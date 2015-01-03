@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import es.uvigo.esei.dm1415.p04.whatsforlunch.ClasesVisual.FragmentVerComida;
 import es.uvigo.esei.dm1415.p04.whatsforlunch.Modelo.Comida;
 import es.uvigo.esei.dm1415.p04.whatsforlunch.R;
-import es.uvigo.esei.dm1415.p04.whatsforlunch.Utils.ReceiverComida;
 
 /**
  * Created by AliothAntonio on 31/12/2014.

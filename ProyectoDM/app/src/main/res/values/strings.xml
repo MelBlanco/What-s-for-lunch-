@@ -15,5 +15,6 @@
     <string name="receta">Receta</string>
     <string name="todas_las_recetas">Todas las recetas</string>
     <string name="title_activity_acercade">Acerca de</string>
-
+    <string name="supermercados">Supermecados Cercanos</string>
+    <string name="naranja">#FAAC58</string>
 </resources>

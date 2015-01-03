@@ -22,7 +22,7 @@ import es.uvigo.esei.dm1415.p04.whatsforlunch.R;
 public class MainActivity extends Activity {
     SQLiteOpenHelper helper;
     SQLiteDatabase db;
-    private long splashDelay = 6000;
+    private long splashDelay = 2000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +69,9 @@ public class MainActivity extends Activity {
         @Override
         protected void onPostExecute(Void aVoid) {
             Intent intent=new Intent(MainActivity.this, MenuPricipal.class);
+            Bundle b=new Bundle();
+            b.putInt("btnActual",0);
+            intent.putExtras(b);
             startActivity(intent);
             finish();
         }

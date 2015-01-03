@@ -56,7 +56,7 @@ public class AdapterIngrediente extends BaseAdapter {
         // Creamos un objeto directivo
         RecetaIngrediente i = items.get(position);
         //Rellenamos la fotografía
-        System.out.println(i);
+        //System.out.println(i);
         ImageView foto = (ImageView) v.findViewById(R.id.imageViewIngrediente);
         foto.setImageDrawable(activity.getResources().getDrawable(i.getIngrediente().getFotoIngrediente()));
         //Rellenamos el nombre

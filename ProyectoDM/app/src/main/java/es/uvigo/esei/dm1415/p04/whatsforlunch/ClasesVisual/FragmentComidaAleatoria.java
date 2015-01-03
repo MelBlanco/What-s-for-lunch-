@@ -36,6 +36,15 @@ public class FragmentComidaAleatoria extends Fragment implements View.OnClickLis
         return rootview;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Bundle b=new Bundle();
+        int btnActual=R.id.btn_comidaaleatoria;
+        b.putInt("btnActual",R.id.btn_comidaaleatoria);
+        getActivity().getIntent().putExtras(b);
+    }
+
     private void inicializarComponenter(final View rootview) {
         btnGenerar=(Button)rootview.findViewById(R.id.btnGenerar);
         btnGenerar.setOnClickListener(this);
